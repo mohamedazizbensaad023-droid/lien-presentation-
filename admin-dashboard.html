@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard – GoldenStar Umzug</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    .admin-body {
+      background: #090d16;
+      color: #f5f7fa;
+      min-height: 100vh;
+      padding: 2rem 1.5rem;
+    }
+    .admin-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(240, 165, 0, 0.2);
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .admin-title-area {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .admin-title-area img {
+      height: 48px;
+    }
+    .admin-title-area h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .admin-badge {
+      background: rgba(240, 165, 0, 0.15);
+      color: #f0a500;
+      border: 1px solid rgba(240, 165, 0, 0.3);
+      padding: 0.35rem 0.85rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .admin-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+    .admin-stat-card {
+      background: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+    .stat-gold { background: rgba(240, 165, 0, 0.15); color: #f0a500; }
+    .stat-teal { background: rgba(0, 201, 167, 0.15); color: #00c9a7; }
+    .stat-purple { background: rgba(179, 136, 255, 0.15); color: #b388ff; }
+    .stat-blue { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+
+    .stat-details h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.1;
+    }
+    .stat-details span {
+      font-size: 0.8rem;
+      color: #8892a4;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+
+    .orders-section {
+      background: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 1.8rem;
+    }
+    .orders-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .orders-toolbar h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .clear-btn {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #f87171;
+      padding: 0.4rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .clear-btn:hover {
+      background: #ef4444;
+      color: #fff;
+    }
+
+    /* Orders Table */
+    .table-responsive {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th {
+      padding: 1rem 0.8rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8892a4;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      font-weight: 700;
+    }
+    td {
+      padding: 1.1rem 0.8rem;
+      font-size: 0.9rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: #e2e8f0;
+      vertical-align: top;
+    }
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .service-pill-table {
+      display: inline-block;
+      padding: 0.25rem 0.65rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    .pill-both { background: rgba(240, 165, 0, 0.15); color: #f0a500; }
+    .pill-moving { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+    .pill-cleaning { background: rgba(0, 201, 167, 0.15); color: #00c9a7; }
+
+    .client-name {
+      font-weight: 700;
+      color: #fff;
+      display: block;
+    }
+    .client-meta {
+      font-size: 0.8rem;
+      color: #8892a4;
+      display: block;
+      margin-top: 0.2rem;
+    }
+    .addr-tag {
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+    .addr-arrow {
+      color: #f0a500;
+      margin: 0.2rem 0;
+      font-size: 0.75rem;
+    }
+    .no-orders {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: #8892a4;
+      font-size: 1rem;
+    }
+
+    /* Lock Screen for Private Access */
+    .lock-screen {
+      position: fixed;
+      inset: 0;
+      background: #090d16;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .lock-card {
+      background: #111827;
+      border: 1px solid rgba(240, 165, 0, 0.25);
+      border-radius: 16px;
+      padding: 2.5rem;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    }
+    .lock-card i.lock-icon {
+      font-size: 2.8rem;
+      color: #f0a500;
+      margin-bottom: 1rem;
+    }
+    .lock-card h2 {
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .lock-card p {
+      font-size: 0.88rem;
+      color: #8892a4;
+      margin-bottom: 1.5rem;
+    }
+    .pass-input {
+      width: 100%;
+      box-sizing: border-box;
+      background: #090d16;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      color: #fff;
+      font-size: 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .pass-input:focus {
+      outline: none;
+      border-color: #f0a500;
+    }
+    .auth-error {
+      color: #f87171;
+      font-size: 0.82rem;
+      display: none;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .admin-stats-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .admin-stats-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="admin-body">
+
+<!-- Passcode Modal if direct access without secret URL token -->
+<div class="lock-screen" id="lockScreen">
+  <div class="lock-card">
+    <i class="fas fa-lock lock-icon"></i>
+    <h2>Geschützter Admin-Bereich</h2>
+    <p>Bitte geben Sie den PIN-Code ein oder nutzen Sie den privaten Link.</p>
+    <form id="authForm">
+      <input type="password" id="adminPassInput" class="pass-input" placeholder="Passwort oder PIN" autocomplete="current-password" autofocus />
+      <div class="auth-error" id="authError">Ungültiger Zugangscode!</div>
+      <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">
+        <i class="fas fa-key"></i> Entsperren
+      </button>
+    </form>
+  </div>
+</div>
+
+<div class="admin-container">
+  <!-- Header -->
+  <header class="admin-header">
+    <div class="admin-title-area">
+      <img src="https://goldenstar-umzug.ch/wp-content/uploads/2023/03/godlenstar-logo-transparent-e1678915708886.png" alt="GoldenStar" />
+      <div>
+        <h1>GoldenStar <span class="accent">Admin Dashboard</span></h1>
+        <small style="color:#8892a4">Eingehende Offerten &amp; Kundenanfragen</small>
+      </div>
+    </div>
+    <div style="display:flex; align-items:center; gap:1rem;">
+      <span class="admin-badge"><i class="fas fa-shield-alt"></i> PRIVATER ZUGANG</span>
+      <a href="index.html" class="btn-ghost" style="padding:0.4rem 1rem; font-size:0.8rem;">
+        <i class="fas fa-external-link-alt"></i> Website anzeigen
+      </a>
+    </div>
+  </header>
+
+  <!-- Statistics Overview -->
+  <div class="admin-stats-grid">
+    <div class="admin-stat-card">
+      <div class="stat-icon stat-gold"><i class="fas fa-clipboard-list"></i></div>
+      <div class="stat-details">
+        <h3 id="statTotal">0</h3>
+        <span>Total Aufträge</span>
+      </div>
+    </div>
+    <div class="admin-stat-card">
+      <div class="stat-icon stat-blue"><i class="fas fa-truck-moving"></i></div>
+      <div class="stat-details">
+        <h3 id="statUmzug">0</h3>
+        <span>Umzüge</span>
+      </div>
+    </div>
+    <div class="admin-stat-card">
+      <div class="stat-icon stat-teal"><i class="fas fa-broom"></i></div>
+      <div class="stat-details">
+        <h3 id="statReinigung">0</h3>
+        <span>Reinigungen</span>
+      </div>
+    </div>
+    <div class="admin-stat-card">
+      <div class="stat-icon stat-purple"><i class="fas fa-calendar-check"></i></div>
+      <div class="stat-details">
+        <h3 id="statNew">0</h3>
+        <span>Heute eingegangen</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Orders Table -->
+  <section class="orders-section">
+    <div class="orders-toolbar">
+      <div>
+        <h2>Eingegangene Anfragen</h2>
+        <span style="font-size:0.82rem; color:#8892a4;">Alle Bestellungen werden direkt hier in Echtzeit hinterlegt.</span>
+      </div>
+      <div style="display:flex; gap:0.6rem;">
+        <button id="refreshBtn" class="btn-ghost" style="padding:0.4rem 0.9rem; font-size:0.8rem;">
+          <i class="fas fa-sync-alt"></i> Aktualisieren
+        </button>
+        <button id="clearOrdersBtn" class="clear-btn">
+          <i class="fas fa-trash-alt"></i> Alle löschen
+        </button>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Datum / Zeit</th>
+            <th>Service</th>
+            <th>Kunde</th>
+            <th>Kontakt</th>
+            <th>Adressen / Details</th>
+            <th>Wunschtermin &amp; Bemerkungen</th>
+          </tr>
+        </thead>
+        <tbody id="ordersTableBody">
+          <!-- Dynamically populated from localStorage -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<script>
+  // PRIVATE ACCESS LOGIC
+  const SECRET_TOKEN = "admin2026";
+  const ADMIN_PASS = "goldenstar123";
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const token = urlParams.get('token');
+  const lockScreen = document.getElementById('lockScreen');
+  const authForm = document.getElementById('authForm');
+  const passInput = document.getElementById('adminPassInput');
+  const authError = document.getElementById('authError');
+
+  // Verify access either via ?token=admin2026 OR password
+  if (token === SECRET_TOKEN || sessionStorage.getItem('goldenstar_admin_auth') === 'true') {
+    lockScreen.style.display = 'none';
+  }
+
+  authForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (passInput.value === ADMIN_PASS || passInput.value === SECRET_TOKEN) {
+      sessionStorage.setItem('goldenstar_admin_auth', 'true');
+      lockScreen.style.display = 'none';
+    } else {
+      authError.style.display = 'block';
+    }
+  });
+
+  // RENDER ORDERS
+  function renderOrders() {
+    const orders = JSON.parse(localStorage.getItem('goldenstar_orders') || '[]');
+    const tbody = document.getElementById('ordersTableBody');
+    tbody.innerHTML = '';
+
+    // Update statistics
+    document.getElementById('statTotal').textContent = orders.length;
+    let umzugCount = 0;
+    let reinigungCount = 0;
+    let todayCount = 0;
+
+    const todayStr = new Date().toISOString().slice(0, 10);
+
+    orders.forEach(ord => {
+      if (ord.service.includes('Umzug')) umzugCount++;
+      if (ord.service.includes('Reinigung')) reinigungCount++;
+      if (ord.timestamp && ord.timestamp.startsWith(todayStr)) todayCount++;
+    });
+
+    document.getElementById('statUmzug').textContent = umzugCount;
+    document.getElementById('statReinigung').textContent = reinigungCount;
+    document.getElementById('statNew').textContent = todayCount;
+
+    if (orders.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="6" class="no-orders"><i class="fas fa-inbox" style="font-size:2rem; margin-bottom:0.5rem; display:block;"></i>Noch keine Offerten eingegangen. Füllen Sie das Formular auf offerte.html aus.</td></tr>`;
+      return;
+    }
+
+    orders.forEach((o) => {
+      const tr = document.createElement('tr');
+
+      let pillClass = 'pill-both';
+      if (o.service === 'nur Umzug') pillClass = 'pill-moving';
+      if (o.service === 'nur Reinigung') pillClass = 'pill-cleaning';
+
+      let addrHtml = `
+        <div class="addr-tag"><strong>Von / Objekt:</strong> ${o.from_street || '-'}, ${o.from_zip || ''} ${o.from_city || ''} (${o.from_floor || 'kein Stockwerk'}, Lift: ${o.from_lift || '-'})</div>
+      `;
+
+      if (o.service !== 'nur Reinigung' && o.to_street) {
+        addrHtml += `
+          <div class="addr-arrow"><i class="fas fa-arrow-down"></i> NACH</div>
+          <div class="addr-tag"><strong>Nach:</strong> ${o.to_street}, ${o.to_zip || ''} ${o.to_city || ''} (${o.to_floor || 'kein Stockwerk'}, Lift: ${o.to_lift || '-'})</div>
+        `;
+      }
+
+      tr.innerHTML = `
+        <td style="white-space:nowrap; font-size:0.82rem; color:#8892a4;">
+          ${o.date_created || '-'}
+        </td>
+        <td>
+          <span class="service-pill-table ${pillClass}">${o.service}</span>
+        </td>
+        <td>
+          <span class="client-name">${o.vorname} ${o.nachname}</span>
+          <span class="client-meta">${o.rooms || '-'}</span>
+        </td>
+        <td>
+          <a href="tel:${o.phone}" style="color:#f0a500; font-weight:700; display:block;"><i class="fas fa-phone-alt"></i> ${o.phone}</a>
+          <a href="mailto:${o.email}" style="color:#8892a4; font-size:0.82rem;"><i class="fas fa-envelope"></i> ${o.email}</a>
+        </td>
+        <td>${addrHtml}</td>
+        <td>
+          <div style="color:#f0a500; font-weight:700; margin-bottom:0.3rem;"><i class="fas fa-calendar-alt"></i> ${o.move_date || '-'}</div>
+          <div style="font-size:0.82rem; color:#8892a4;">${o.notes || '<em>Keine Bemerkungen</em>'}</div>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  document.getElementById('refreshBtn').addEventListener('click', renderOrders);
+  document.getElementById('clearOrdersBtn').addEventListener('click', () => {
+    if (confirm('Möchten Sie wirklich alle eingegangenen Offerten unwiderruflich löschen?')) {
+      localStorage.removeItem('goldenstar_orders');
+      renderOrders();
+    }
+  });
+
+  renderOrders();
+</script>
+</body>
+</html>

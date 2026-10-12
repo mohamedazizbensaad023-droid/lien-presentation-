@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoldenStar Umzug – Ihr Schweizer Profi für Umzug & Reinigung</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ======= NAVBAR ======= -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="https://goldenstar-umzug.ch/wp-content/uploads/2023/03/godlenstar-logo-transparent-e1678915708886.png" alt="GoldenStar Umzug" />
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" class="active">Über uns</a>
+      <a href="dienstleistungen.html">Dienstleistungen</a>
+      <a href="offerte.html">Offerte</a>
+      <a href="kontakt.html">Kontakt</a>
+      <div class="lang-switcher" id="langSwitcher">
+        <span id="currentLangLabel">DE</span>
+        <i class="fas fa-chevron-down"></i>
+        <div class="lang-dropdown" id="langDropdown">
+          <a href="#" data-lang="DE" class="active-lang">DE</a>
+          <a href="#" data-lang="FR">FR</a>
+          <a href="#" data-lang="EN">EN</a>
+        </div>
+      </div>
+    </nav>
+    <button class="nav-burger" id="navBurger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ======= HERO / VIDEO SECTION ======= -->
+<section class="hero" id="hero">
+  <!-- Ambient video-style animated background -->
+  <div class="hero-video-bg">
+    <div class="video-overlay"></div>
+    <video class="hero-video" autoplay muted loop playsinline>
+      <!-- Fallback background if video not available -->
+    </video>
+    <!-- Animated particle-style background -->
+    <canvas class="hero-canvas" id="heroCanvas"></canvas>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <i class="fas fa-star"></i> Schweizer Qualität seit 2016
+    </div>
+    <h1 class="hero-title">
+      <span class="title-line">Ihr Umzug.</span>
+      <span class="title-line accent">Unser Herzstück.</span>
+    </h1>
+    <p class="hero-sub">
+      Professioneller Umzug & Reinigung in der Schweiz –<br>
+      Kostenvoranschlag in weniger als 24 Stunden.
+    </p>
+    <div class="hero-cta">
+      <a href="offerte.html" class="btn-primary">
+        <i class="fas fa-clipboard-list"></i> Kostenlose Offerte
+      </a>
+      <a href="kontakt.html" class="btn-ghost">
+        <i class="fas fa-phone"></i> Jetzt anrufen
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num" data-target="500">0</span><span>+</span>
+        <span class="stat-label">Umzüge</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num" data-target="24">0</span><span>h</span>
+        <span class="stat-label">Antwortzeit</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num" data-target="100">0</span><span>%</span>
+        <span class="stat-label">Zufriedenheit</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <span>Entdecken</span>
+    <div class="scroll-arrow"><i class="fas fa-chevron-down"></i></div>
+  </div>
+</section>
+
+<!-- ======= ABOUT / WELCOME SECTION ======= -->
+<section class="section about-section" id="ueber-uns">
+  <div class="section-container">
+    <div class="about-media reveal">
+      <div class="about-img-frame">
+        <img src="https://goldenstar-umzug.ch/wp-content/uploads/2023/03/umzug-bienne.jpg"
+             alt="GoldenStar Umzug Team" class="about-img" />
+        <div class="img-badge">
+          <i class="fas fa-trophy"></i>
+          <span>Top Bewertungen</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-text reveal reveal-right">
+      <p class="section-eyebrow">Über uns</p>
+      <h2 class="section-title">Sorgenfrei umziehen –<br><span class="accent">mit GoldenStar</span></h2>
+      <p class="section-body">
+        Herzlich willkommen bei GoldenStar Umzug. Wir sind ein Profi-Unternehmen für
+        <strong>Umzug und Reinigung</strong> in der Schweiz – damit Sie Zeit und Geld sparen,
+        während wir uns um alles kümmern.
+      </p>
+      <p class="section-body">
+        Als Schweizer Umzugsunternehmen erhalten Sie Ihren <strong>Kostenvoranschlag in weniger als 24 Stunden</strong>.
+        Unverbindlich. Transparent. Zuverlässig.
+      </p>
+      <ul class="feature-list">
+        <li><i class="fas fa-check-circle"></i> Professionelle &amp; kompetente Mitarbeiter</li>
+        <li><i class="fas fa-check-circle"></i> Effiziente und unkomplizierte Ausführung</li>
+        <li><i class="fas fa-check-circle"></i> Individuelle Offerte innerhalb 24 Stunden</li>
+        <li><i class="fas fa-check-circle"></i> 100% Qualitätsgarantie</li>
+      </ul>
+      <div class="about-cta">
+        <a href="offerte.html" class="btn-primary">Offerte anfordern</a>
+        <div class="contact-pill">
+          <i class="fas fa-phone"></i>
+          <div>
+            <small>Rufen Sie uns an</small>
+            <strong>078 300 81 80</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= SERVICES SECTION ======= -->
+<section class="section services-section" id="services">
+  <div class="section-container column-layout">
+    <p class="section-eyebrow centered">Was wir bieten</p>
+    <h2 class="section-title centered">Unsere <span class="accent">Dienstleistungen</span></h2>
+    <p class="section-sub centered">
+      Alles aus einer Hand – damit Ihr Umzug reibungslos und stressfrei verläuft.
+    </p>
+
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <i class="fas fa-truck-moving"></i>
+        </div>
+        <h3>Umzug</h3>
+        <p>Wir übernehmen den kompletten Umzug Ihrer Möbel und Gegenstände – sorgfältig, rasch und zuverlässig. Von der alten in die neue Wohnung.</p>
+        <a href="dienstleistungen.html" class="card-link">Mehr erfahren <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <i class="fas fa-broom"></i>
+        </div>
+        <h3>Reinigung</h3>
+        <p>Professionelle Wohnungsreinigung nach höchsten Standards – damit Ihre Wohnung in perfektem Zustand für die Übergabe ist.</p>
+        <a href="dienstleistungen.html" class="card-link">Mehr erfahren <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <i class="fas fa-recycle"></i>
+        </div>
+        <h3>Entsorgung</h3>
+        <p>Wir übernehmen die komplette Entsorgung für Sie. Von Glas über Karton bis hin zu Möbeln und Elektrogeräten – alles professionell entsorgt.</p>
+        <a href="dienstleistungen.html" class="card-link">Mehr erfahren <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======= 3D BACKGROUND FLOATING CUBE (Follows Scroll) ======= -->
+<div class="bg-3d-scene" id="bg3dScene">
+  <div class="bg-cube-container">
+    <div class="cube" id="the3dCube">
+      <div class="cube-face front">
+        <div class="cube-face-inner">
+          <i class="fas fa-truck-moving"></i>
+          <h3>Umzug</h3>
+          <p>Sicher &amp; Schnell</p>
+          <div class="face-glow gold"></div>
+        </div>
+      </div>
+      <div class="cube-face right">
+        <div class="cube-face-inner">
+          <i class="fas fa-broom"></i>
+          <h3>Reinigung</h3>
+          <p>100% Abnahmegarantie</p>
+          <div class="face-glow teal"></div>
+        </div>
+      </div>
+      <div class="cube-face back">
+        <div class="cube-face-inner">
+          <i class="fas fa-recycle"></i>
+          <h3>Entsorgung</h3>
+          <p>Umweltgerecht</p>
+          <div class="face-glow purple"></div>
+        </div>
+      </div>
+      <div class="cube-face left">
+        <div class="cube-face-inner">
+          <i class="fas fa-star"></i>
+          <h3>GoldenStar</h3>
+          <p>Schweizer Profi</p>
+          <div class="face-glow gold"></div>
+        </div>
+      </div>
+      <div class="cube-face top">
+        <div class="cube-face-inner">
+          <i class="fas fa-shield-alt"></i>
+          <span>Qualität &amp; Schutz</span>
+        </div>
+      </div>
+      <div class="cube-face bottom">
+        <div class="cube-face-inner">
+          <i class="fas fa-phone"></i>
+          <span>078 300 81 80</span>
+        </div>
+      </div>
+    </div>
+    <div class="cube-shadow" id="cubeShadow"></div>
+  </div>
+</div>
+
+<!-- ======= VIDEO FEATURE SECTION ======= -->
+<section class="video-section">
+  <div class="video-section-bg">
+    <div class="video-bg-overlay"></div>
+    <img src="https://goldenstar-umzug.ch/wp-content/uploads/2023/03/demenagement-1024x576.jpg"
+         alt="background" class="video-bg-img" />
+  </div>
+  <div class="video-section-content reveal">
+    <div class="play-btn-wrap">
+      <a href="offerte.html" class="play-btn" title="Offerte anfordern">
+        <i class="fas fa-file-invoice"></i>
+      </a>
+      <span class="ripple"></span>
+    </div>
+    <h2>Bereit für Ihren<br><span class="accent">stressfreien Umzug?</span></h2>
+    <p>Füllen Sie unsere einfache Offerte aus und erhalten Sie<br>
+       ein individuelles Angebot innerhalb von 24 Stunden.</p>
+    <a href="offerte.html" class="btn-primary">Jetzt Offerte anfordern</a>
+  </div>
+</section>
+
+<!-- ======= HOW IT WORKS ======= -->
+<section class="section steps-section">
+  <div class="section-container column-layout">
+    <p class="section-eyebrow centered">Einfach & Schnell</p>
+    <h2 class="section-title centered">So funktioniert's</h2>
+
+    <div class="steps-grid">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <div class="step-icon"><i class="fas fa-clipboard-list"></i></div>
+        <h4>Offerte ausfüllen</h4>
+        <p>Füllen Sie unser Online-Formular mit Ihren Umzugsdaten aus. Einfach und unkompliziert.</p>
+      </div>
+      <div class="step-arrow reveal"><i class="fas fa-arrow-right"></i></div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <div class="step-icon"><i class="fas fa-clock"></i></div>
+        <h4>Angebot erhalten</h4>
+        <p>Wir melden uns innerhalb von 24 Stunden mit einem individuellen, transparenten Angebot.</p>
+      </div>
+      <div class="step-arrow reveal"><i class="fas fa-arrow-right"></i></div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <div class="step-icon"><i class="fas fa-home"></i></div>
+        <h4>Stressfrei einziehen</h4>
+        <p>Wir übernehmen alles – Sie können sich entspannt auf Ihr neues Zuhause freuen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= CONTACT CARD ======= -->
+<section class="section contact-section">
+  <div class="contact-card-grid">
+    <div class="contact-card reveal">
+      <div class="contact-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+      <h4>Adresse</h4>
+      <p>Calvin-weg 11<br>2504 Biel/Bienne</p>
+    </div>
+    <div class="contact-card reveal">
+      <div class="contact-card-icon"><i class="fas fa-phone-alt"></i></div>
+      <h4>Telefon</h4>
+      <p><a href="tel:0783008180">078 300 81 80</a></p>
+    </div>
+    <div class="contact-card reveal">
+      <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+      <h4>E-Mail</h4>
+      <p><a href="mailto:info@goldenstar-umzug.ch">info@goldenstar-umzug.ch</a></p>
+    </div>
+    <div class="contact-card reveal">
+      <div class="contact-card-icon"><i class="fas fa-calendar-alt"></i></div>
+      <h4>Öffnungszeiten</h4>
+      <p>Mo – Fr<br>08:00 – 17:00 Uhr</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FOOTER ======= -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="https://goldenstar-umzug.ch/wp-content/uploads/2023/03/godlenstar-logo-transparent-e1678915708886.png"
+           alt="GoldenStar Umzug" class="footer-logo" />
+      <p>Ihr Profi-Unternehmen für Umzug und Reinigung in der Schweiz.</p>
+    </div>
+    <div class="footer-nav">
+      <h5>Navigation</h5>
+      <ul>
+        <li><a href="index.html">Über uns</a></li>
+        <li><a href="dienstleistungen.html">Dienstleistungen</a></li>
+        <li><a href="offerte.html">Offerte</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h5>Kontakt</h5>
+      <p><i class="fas fa-map-marker-alt"></i> Calvin-weg 11, 2504 Biel/Bienne</p>
+      <p><i class="fas fa-phone"></i> 078 300 81 80</p>
+      <p><i class="fas fa-envelope"></i> info@goldenstar-umzug.ch</p>
+      <p><i class="fas fa-clock"></i> Mo–Fr, 08:00–17:00</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 GoldenStar Umzug GmbH. Alle Rechte vorbehalten.</p>
+    <div class="footer-lang">
+      <a href="#">DE</a> | <a href="#">FR</a> | <a href="#">EN</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

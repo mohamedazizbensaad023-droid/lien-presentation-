@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kostenlose Offerte – GoldenStar Umzug</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ======= NAVBAR ======= -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="https://goldenstar-umzug.ch/wp-content/uploads/2023/03/godlenstar-logo-transparent-e1678915708886.png" alt="GoldenStar Umzug" />
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Über uns</a>
+      <a href="dienstleistungen.html">Dienstleistungen</a>
+      <a href="offerte.html" class="active">Offerte</a>
+      <a href="kontakt.html">Kontakt</a>
+      <div class="lang-switcher" id="langSwitcher">
+        <span id="currentLangLabel">DE</span>
+        <i class="fas fa-chevron-down"></i>
+        <div class="lang-dropdown" id="langDropdown">
+          <a href="#" data-lang="DE" class="active-lang">DE</a>
+          <a href="#" data-lang="FR">FR</a>
+          <a href="#" data-lang="EN">EN</a>
+        </div>
+      </div>
+    </nav>
+    <button class="nav-burger" id="navBurger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ======= PAGE HERO ======= -->
+<section class="page-hero">
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="hero-badge">
+      <i class="fas fa-clock"></i> Antwort in &lt; 24h
+    </div>
+    <h1 class="page-hero-title">Kostenlose <span class="accent">Offerte</span></h1>
+    <p class="page-hero-sub">Füllen Sie das Formular aus – 100% unverbindlich, transparent und fair.</p>
+  </div>
+</section>
+
+<!-- ======= FORM SECTION ======= -->
+<section class="section offerte-section">
+  <div class="form-wrapper-card reveal">
+
+    <div class="form-header-badge">
+      <i class="fas fa-file-contract"></i>
+      <div>
+        <h3>Individuelles Angebot anfordern</h3>
+        <p>Erhalten Sie Ihren massgeschneiderten Kostenvoranschlag innert 24 Stunden.</p>
+      </div>
+    </div>
+
+    <form id="offerteForm" class="modern-form">
+      
+      <!-- Schritt 1: Service wählen -->
+      <div class="form-step-block">
+        <div class="step-badge-label">
+          <span class="badge-idx">1</span>
+          <h4>Gewünschter Service</h4>
+        </div>
+        <div class="service-option-grid">
+          <label class="service-radio-card">
+            <input type="radio" name="service" value="Umzug &amp; Reinigung" checked />
+            <div class="radio-content">
+              <i class="fas fa-star-half-alt"></i>
+              <strong>Umzug &amp; Reinigung</strong>
+              <span>Das Rundum-Sorglos-Paket</span>
+            </div>
+          </label>
+          <label class="service-radio-card">
+            <input type="radio" name="service" value="nur Umzug" />
+            <div class="radio-content">
+              <i class="fas fa-truck-moving"></i>
+              <strong>Nur Umzug</strong>
+              <span>Transport &amp; Möbelmontage</span>
+            </div>
+          </label>
+          <label class="service-radio-card">
+            <input type="radio" name="service" value="nur Reinigung" />
+            <div class="radio-content">
+              <i class="fas fa-broom"></i>
+              <strong>Nur Reinigung</strong>
+              <span>Mit 100% Abnahmegarantie</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Schritt 2: Persönliche Angaben -->
+      <div class="form-step-block">
+        <div class="step-badge-label">
+          <span class="badge-idx">2</span>
+          <h4>Persönliche Angaben</h4>
+        </div>
+        <div class="form-row-2">
+          <div class="input-field">
+            <label>Vorname <span class="req">*</span></label>
+            <input type="text" name="vorname" placeholder="z.B. Markus" required />
+          </div>
+          <div class="input-field">
+            <label>Nachname <span class="req">*</span></label>
+            <input type="text" name="nachname" placeholder="z.B. Müller" required />
+          </div>
+        </div>
+        <div class="form-row-2">
+          <div class="input-field">
+            <label>E-Mail-Adresse <span class="req">*</span></label>
+            <input type="email" name="email" placeholder="ihre.email@beispiel.ch" required />
+          </div>
+          <div class="input-field">
+            <label>Mobiltelefon / Telefon <span class="req">*</span></label>
+            <input type="tel" name="phone" placeholder="079 000 00 00" required />
+          </div>
+        </div>
+      </div>
+
+      <!-- Schritt 3: Adressen -->
+      <div class="form-step-block" id="addressStepBlock">
+        <div class="step-badge-label">
+          <span class="badge-idx" id="step3Badge">3</span>
+          <h4 id="addressStepTitle">Auszugs- &amp; Einzugsadresse</h4>
+        </div>
+        
+        <div class="address-box-wrapper" id="addressBoxWrapper">
+          <!-- Auszug / Zu reinigendes Objekt -->
+          <div class="address-box" id="fromAddressBox">
+            <h5 id="fromAddressHeading"><i class="fas fa-map-marker-alt"></i> Aktuelle Adresse (Auszug)</h5>
+            <div class="input-field">
+              <label>Strasse &amp; Nr. <span class="req">*</span></label>
+              <input type="text" name="from_street" placeholder="Strasse und Hausnummer" required />
+            </div>
+            <div class="form-row-2">
+              <div class="input-field">
+                <label>PLZ <span class="req">*</span></label>
+                <input type="text" name="from_zip" placeholder="2504" required />
+              </div>
+              <div class="input-field">
+                <label>Ort <span class="req">*</span></label>
+                <input type="text" name="from_city" placeholder="Biel" required />
+              </div>
+            </div>
+            <div class="form-row-2">
+              <div class="input-field">
+                <label>Stockwerk</label>
+                <input type="text" name="from_floor" placeholder="z.B. 2. OG" />
+              </div>
+              <div class="input-field">
+                <label>Lift vorhanden?</label>
+                <select name="from_lift">
+                  <option value="ja">Ja, Lift vorhanden</option>
+                  <option value="nein">Nein, kein Lift</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Einzug (Nur bei Umzug / Umzug & Reinigung) -->
+          <div class="address-box" id="destinationAddressBox">
+            <h5><i class="fas fa-home"></i> Neue Adresse (Einzug)</h5>
+            <div class="input-field">
+              <label>Strasse &amp; Nr. <span class="req">*</span></label>
+              <input type="text" name="to_street" id="toStreetInput" placeholder="Strasse und Hausnummer" required />
+            </div>
+            <div class="form-row-2">
+              <div class="input-field">
+                <label>PLZ <span class="req">*</span></label>
+                <input type="text" name="to_zip" id="toZipInput" placeholder="3000" required />
+              </div>
+              <div class="input-field">
+                <label>Ort <span class="req">*</span></label>
+                <input type="text" name="to_city" id="toCityInput" placeholder="Bern" required />
+              </div>
+            </div>
+            <div class="form-row-2">
+              <div class="input-field">
+                <label>Stockwerk</label>
+                <input type="text" name="to_floor" placeholder="z.B. EG" />
+              </div>
+              <div class="input-field">
+                <label>Lift vorhanden?</label>
+                <select name="to_lift">
+                  <option value="ja">Ja, Lift vorhanden</option>
+                  <option value="nein">Nein, kein Lift</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Schritt 4: Umzugsdatum / Reinigungsdatum & Wohnung -->
+      <div class="form-step-block" id="detailsStepBlock">
+        <div class="step-badge-label">
+          <span class="badge-idx">4</span>
+          <h4 id="detailsStepTitle">Wohnungsdetails &amp; Termin</h4>
+        </div>
+        <div class="form-row-2">
+          <div class="input-field">
+            <label id="dateFieldLabel">Geplantes Umzugsdatum <span class="req">*</span></label>
+            <input type="date" name="move_date" required />
+          </div>
+          <div class="input-field">
+            <label>Wohnungsgrösse</label>
+            <select name="rooms">
+              <option value="1">1 Zimmer Wohnung</option>
+              <option value="1.5">1.5 Zimmer Wohnung</option>
+              <option value="2.5">2.5 Zimmer Wohnung</option>
+              <option value="3.5" selected>3.5 Zimmer Wohnung</option>
+              <option value="4.5">4.5 Zimmer Wohnung</option>
+              <option value="5.5+">5.5+ Zimmer / Einfamilienhaus</option>
+            </select>
+          </div>
+        </div>
+        <div class="input-field">
+          <label>Zusätzliche Wünsche oder Bemerkungen</label>
+          <textarea name="notes" rows="4" placeholder="Besondere Gegenstände wie Klavier, Keller-Entsorgung, Parkplatzreservierung erwünscht..."></textarea>
+        </div>
+      </div>
+
+      <div class="form-submit-row">
+        <button type="submit" class="btn-primary btn-submit">
+          <i class="fas fa-paper-plane"></i> Offerte jetzt unverbindlich anfordern
+        </button>
+      </div>
+
+    </form>
+  </div>
+</section>
+
+<!-- ======= FOOTER ======= -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="https://goldenstar-umzug.ch/wp-content/uploads/2023/03/godlenstar-logo-transparent-e1678915708886.png" alt="GoldenStar Umzug" class="footer-logo" />
+      <p>Ihr Profi-Unternehmen für Umzug und Reinigung in der Schweiz.</p>
+    </div>
+    <div class="footer-nav">
+      <h5>Navigation</h5>
+      <ul>
+        <li><a href="index.html">Über uns</a></li>
+        <li><a href="dienstleistungen.html">Dienstleistungen</a></li>
+        <li><a href="offerte.html">Offerte</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h5>Kontakt</h5>
+      <p><i class="fas fa-map-marker-alt"></i> Calvin-weg 11, 2504 Biel/Bienne</p>
+      <p><i class="fas fa-phone"></i> 078 300 81 80</p>
+      <p><i class="fas fa-envelope"></i> info@goldenstar-umzug.ch</p>
+      <p><i class="fas fa-clock"></i> Mo–Fr, 08:00–17:00</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 GoldenStar Umzug GmbH. Alle Rechte vorbehalten.</p>
+    <div class="footer-lang">
+      <a href="#">DE</a> | <a href="#">FR</a> | <a href="#">EN</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
